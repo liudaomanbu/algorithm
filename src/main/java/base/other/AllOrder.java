@@ -7,6 +7,6 @@ import java.util.List;
  * @date 2022-06-01
  * @since 1.0.0
  */
-public interface AnyOrder {
+public interface AllOrder {
     List<List<Integer>> combine(int n, int k);
 }

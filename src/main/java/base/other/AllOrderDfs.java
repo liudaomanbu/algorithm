@@ -8,7 +8,7 @@ import java.util.List;
  * @date 2022-06-06
  * @since 1.0.0
  */
-public class AnyOrderDfs implements AnyOrder {
+public class AllOrderDfs implements AllOrder {
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new LinkedList<>();
         dfs(n, k, new LinkedList<>(), result);
