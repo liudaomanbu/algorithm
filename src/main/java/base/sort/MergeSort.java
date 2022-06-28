@@ -6,10 +6,6 @@ package base.sort;
  * @since 1.0.0
  */
 public class MergeSort extends Sort {
-    @Override
-    public <T extends Comparable<T>> void sort(T[] nums) {
-        sort(nums, 0, nums.length - 1);
-    }
 
     @Override
     public void sortInt(int[] nums) {
@@ -45,32 +41,4 @@ public class MergeSort extends Sort {
         }
     }
 
-    private <T extends Comparable<T>> void sort(T[] nums, int leftIndex, int rightIndex) {
-        if (leftIndex != rightIndex) {
-            int middleIndex = leftIndex + ((rightIndex - leftIndex) >> 1);
-            sort(nums, leftIndex, middleIndex);
-            sort(nums, middleIndex + 1, rightIndex);
-            merge(nums, leftIndex, middleIndex, rightIndex);
-        }
-    }
-
-    private <T extends Comparable<T>> void merge(T[] nums, int left, int middle, int right) {
-        Object[] help = new Object[right - left + 1];
-        int i = 0;
-        int leftIndex = left;
-        int rightIndex = middle + 1;
-        while (leftIndex <= middle && rightIndex <= right) {
-            help[i++] = lessOrEqual(nums[leftIndex], nums[rightIndex]) ? nums[leftIndex++] : nums[rightIndex++];
-        }
-        while (leftIndex <= middle) {
-            help[i++] = nums[leftIndex++];
-        }
-        while (rightIndex <= right) {
-            help[i++] = nums[rightIndex++];
-        }
-
-        for (i = 0; i < help.length; i++) {
-            nums[left + i] = (T) help[i];
-        }
-    }
 }

@@ -6,10 +6,6 @@ package base.sort;
  * @since 1.0.0
  */
 public class HeapSort extends Sort {
-    @Override
-    public <T extends Comparable<T>> void sort(T[] nums) {
-
-    }
 
     @Override
     public void sortInt(int[] nums) {

@@ -51,6 +51,7 @@ public abstract class TwoOddTimesNumTest {
         Assertions.assertEquals(expected, Arrays.stream(actual).boxed().collect(Collectors.toSet()));
     }
 
+
     public Random random() {
         return new Random();
     }

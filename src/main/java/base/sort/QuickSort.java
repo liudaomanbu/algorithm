@@ -12,11 +12,6 @@ import java.util.Random;
 public class QuickSort extends Sort {
 
     @Override
-    public <T extends Comparable<T>> void sort(T[] nums) {
-        sort(nums, 0, nums.length - 1);
-    }
-
-    @Override
     public void sortInt(int[] nums) {
         sortInt(nums, 0, nums.length - 1);
     }
@@ -45,35 +40,6 @@ public class QuickSort extends Sort {
             }
         }
         return new Range(leftIndex + 1, rightIndex - 1);
-    }
-
-    private <T extends Comparable<T>> void sort(T[] nums, int start, int end) {
-        if (end <= start) {
-            return;
-        }
-        Range equalRange = partition(nums, start, end);
-        sort(nums, start, equalRange.left() - 1);
-        sort(nums, equalRange.right() + 1, end);
-    }
-
-    private <T extends Comparable<T>> Range partition(T[] a, int leftIndex, int rightIndex) {
-        //随机划分值
-        T baseValue = a[new Random().nextInt(rightIndex - leftIndex + 1) + leftIndex];
-        int lessIndex = leftIndex - 1;//<部分右边界,闭区间
-        int greaterIndex = rightIndex + 1;//>部分左边界,闭区间
-        int index = leftIndex;//当前指针
-        while (index < greaterIndex) {
-            if (equal(a[index], baseValue)) {
-                index++;
-            } else if (less(a[index], baseValue)) {
-                swap(a, index, ++lessIndex);
-                index++;
-            } else {
-                swap(a, index, --greaterIndex);
-            }
-        }
-        //[leftIndex,lessIndex][lessIndex+1,greaterIndex-1][greaterIndex,rightIndex]
-        return new Range(lessIndex + 1, greaterIndex - 1);
     }
 
     @Value
